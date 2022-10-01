@@ -1,0 +1,8 @@
+{
+  "name": "Telegram2Notion Quarkus",
+  "twitter": "polilluminato",
+  "theme": "#303f9f",
+  "sidebar": [
+    ["Configuration", "/pages/configuration"]
+  ]
+}
