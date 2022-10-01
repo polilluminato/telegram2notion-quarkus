@@ -3,6 +3,7 @@
   "twitter": "polilluminato",
   "theme": "#303f9f",
   "sidebar": [
-    ["Configuration", "/pages/configuration"]
+    ["Configuration", "/pages/configuration"],
+    ["Quarkus docs", "/pages/quarkus-doc"]
   ]
 }
