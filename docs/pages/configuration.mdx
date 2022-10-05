@@ -1,1 +1,24 @@
 # Configuration
+
+## Telegram
+
+First you have to create a telegram bot using the very useful [@BotFather](https://telegram.me/BotFather). Once a conversation began with the bot use its commands and click on `/start`. Then follow the procedure:
+* On the command list select the command `/newbot` and choose a name for your bot, for example: `MyAwesomeBot`
+* Choose an username for your bot, it must end with `bot`, for example: `myawesome_bot`
+* At this point Botfather will tell you that the creation has taken place successfully and will send you a message with the token to be used to interact with the bot via HTTP API. We will use this token in the [quarkus](#quarkus) section
+* You can start a new conversation with your bot from the `telegram.me/<bot_username>` to verify that everything was created correctly.
+
+## Notion
+
+## Quarkus
+
+Within the Quarkus project, the `application.properties` file must be created and positioned in the `src->main->Resources` folder, with this content:
+
+```
+#TELEGRAM
+telegram.bot.token=<YOUR_BOT_TOKEN>
+
+#Notion
+notion.db=<YOUR_NOTION_DATABASE_ID>
+notion.secret=<YOUR_NOTION_SECRET_KEY>
+```
