@@ -1,5 +1,6 @@
 package com.albertobonacina.telegram2notion.service;
 
+import org.eclipse.microprofile.config.ConfigProvider;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -11,11 +12,6 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class TelegramBotService extends TelegramLongPollingBot {
 
-    @ConfigProperty(name = "telegram.bot.username")
-    String botUsername;
-    @ConfigProperty(name = "telegram.bot.token")
-    String botToken;
-
     private final INotionService notionService;
 
     public TelegramBotService(INotionService notionService) {
@@ -24,12 +20,12 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return botUsername;
+        return ConfigProvider.getConfig().getValue("telegram.bot.username", String.class);
     }
 
     @Override
     public String getBotToken() {
-        return botToken;
+        return ConfigProvider.getConfig().getValue("telegram.bot.token", String.class);
     }
 
     public void onUpdateReceived(Update update) {
