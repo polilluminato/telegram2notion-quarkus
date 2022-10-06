@@ -50,6 +50,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.telegram/telegrambots -->
+    <dependency>
+        <groupId>org.telegram</groupId>
+        <artifactId>telegrambots</artifactId>
+        <version>6.1.0</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
