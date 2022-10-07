@@ -1,6 +1,6 @@
 # Telegram2Notion Quarkus
 
-The project's documentation is on [Telegram2Notion Quarkus Docs](https://docs.page/polilluminato/telegram2notion-quarkus)
+The project's documentation is at [Telegram2Notion Quarkus Docs](https://docs.page/polilluminato/telegram2notion-quarkus)
 
 ## ToDo
 
