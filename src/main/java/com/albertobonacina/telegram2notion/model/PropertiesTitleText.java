@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class NotionPropertiesDate {
+public class PropertiesTitleText {
 
-    private PropertiesDateDate date;
+    private String content;
 
 }
