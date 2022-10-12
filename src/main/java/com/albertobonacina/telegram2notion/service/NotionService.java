@@ -1,26 +1,30 @@
 package com.albertobonacina.telegram2notion.service;
 
+import com.albertobonacina.telegram2notion.client.NotionPageResource;
 import com.albertobonacina.telegram2notion.model.*;
 import com.albertobonacina.telegram2notion.utils.UrlUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @ApplicationScoped
 public class NotionService implements INotionService {
 
     @ConfigProperty(name = "notion.db")
     String notionDB;
-    @ConfigProperty(name = "notion.secret")
-    String notionSecret;
-    @ConfigProperty(name = "notion.version")
-    String notionVersion;
+
+    @Inject
+    NotionPageResource notionPageResource;
 
     @Override
     public Boolean send(String telegramMessage) {
@@ -29,17 +33,18 @@ public class NotionService implements INotionService {
         List<String> urlList = UrlUtils.extractUrls(telegramMessage);
         List<String> hashtagList = UrlUtils.extractHashTags(telegramMessage);
 
-        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Rome"));
-
-        NotionPage notionPageToCreate = new NotionPage();
-            notionPageToCreate.setParent(new NotionPageParent(notionDB));
+        NotionPage newNotionPage = new NotionPage();
+            newNotionPage.setParent(new NotionPageParent(notionDB));
                 NotionPageProperties notionPageProperties = new NotionPageProperties();
                     notionPageProperties.setUrl(
                         new NotionPropertiesUrl(urlList.get(0))
                     );
                     notionPageProperties.setDate(
                         new NotionPropertiesDate(
-                            new PropertiesDateDate(now.toString(),null))
+                            new PropertiesDateDate(
+                                ZonedDateTime.now(ZoneId.of("Europe/Rome"))
+                                    .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME), null)
+                        )
                     );
                     notionPageProperties.setTag(
                         new NotionPropertiesTag(
@@ -60,11 +65,9 @@ public class NotionService implements INotionService {
                             )
                         )
                     );
-            notionPageToCreate.setProperties(notionPageProperties);
+            newNotionPage.setProperties(notionPageProperties);
 
-        //TODO: send notionPageToCreate to Notion via NotionApi
-
-        System.out.println("notionPageToCreate: " + notionPageToCreate);
+        notionPageResource.createNewPage(newNotionPage);
 
         return true;
     }
