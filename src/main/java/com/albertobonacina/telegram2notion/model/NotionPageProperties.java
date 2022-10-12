@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NotionPageProperties {
 
-    private NotionPropertiesUrl Url;
-    private NotionPropertiesDate Date;
-    private NotionPropertiesTag Tag;
-    private NotionPropertiesName Name;
+    private NotionPropertiesUrl url;
+    private NotionPropertiesDate date;
+    private NotionPropertiesTag tag;
+    private NotionPropertiesName name;
 
 }
