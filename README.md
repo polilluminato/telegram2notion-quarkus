@@ -4,8 +4,9 @@ The project's documentation is at [Telegram2Notion Quarkus Docs](https://docs.pa
 
 ## ToDo
 
-* [ ] Send request to Notion via API: [Create a page
-  ](https://developers.notion.com/reference/post-page)
+* [X] Send request to Notion via API: [Create a page](https://developers.notion.com/reference/post-page)
+  * [USING THE REST CLIENT REACTIVE](https://quarkus.io/guides/rest-client-reactive)
+* [ ] Add a column to the database for the read/unread status of an article
 
 ## 💎 Contributing
 
