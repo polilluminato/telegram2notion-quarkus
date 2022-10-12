@@ -21,6 +21,8 @@ telegram.bot.token=<YOUR_BOT_TOKEN>
 
 #Notion
 notion.db=<YOUR_NOTION_DATABASE_ID>
-notion.secret=<YOUR_NOTION_SECRET_KEY>
+notion.secret=Bearer <YOUR_NOTION_SECRET_KEY>
 notion.version=2022-06-28
+quarkus.rest-client.notionclient-api.url=https://api.notion.com/v1/
+quarkus.rest-client.notionclient-api.scope=javax.inject.Singleton
 ```
