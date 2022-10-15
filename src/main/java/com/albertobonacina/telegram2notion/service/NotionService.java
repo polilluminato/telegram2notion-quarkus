@@ -8,6 +8,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.io.IOException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -33,11 +34,21 @@ public class NotionService implements INotionService {
         List<String> urlList = UrlUtils.extractUrls(telegramMessage);
         List<String> hashtagList = UrlUtils.extractHashTags(telegramMessage);
 
+        //Get the first url in the list because I have to get the title of the webpage
+        String myUrl = urlList.get(0);
+        String titleFromMyUrl = "";
+        try {
+            titleFromMyUrl = UrlUtils.getTitleFromWebPage(myUrl);
+        } catch (IOException e) {
+            //TODO: return custom message to the bot
+            log.error(e.getMessage());
+        }
+
         NotionPage newNotionPage = new NotionPage();
             newNotionPage.setParent(new NotionPageParent(notionDB));
                 NotionPageProperties notionPageProperties = new NotionPageProperties();
                     notionPageProperties.setUrl(
-                        new NotionPropertiesUrl(urlList.get(0))
+                        new NotionPropertiesUrl(myUrl)
                     );
                     notionPageProperties.setDate(
                         new NotionPropertiesDate(
@@ -59,7 +70,7 @@ public class NotionService implements INotionService {
                             new ArrayList<>(
                                 Collections.singleton(
                                     new PropertiesTitle(
-                                        new PropertiesTitleText("Test title page")
+                                        new PropertiesTitleText(titleFromMyUrl)
                                     )
                                 )
                             )
