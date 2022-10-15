@@ -6,11 +6,11 @@ The project's documentation is at [Telegram2Notion Quarkus Docs](https://docs.pa
 
 * [x] Send request to Notion via API: [Create a page](https://developers.notion.com/reference/post-page)
   * [USING THE REST CLIENT REACTIVE](https://quarkus.io/guides/rest-client-reactive)
-* [x] Retrive article title form the url inside Telegram message (#1 - 0c06977)
+* [x] Retrive article title form the url inside Telegram message in [#1](https://github.com/polilluminato/telegram2notion-quarkus/issues/1)
 * [x] Add a column to the database for the read/unread status of an article (#2)
 * [ ] Update docs
-* [ ] Add error responses to the bot in case of an error
-* [ ] Improve the bot's response
+* [ ] Add error responses to the bot in case of an error [#3](https://github.com/polilluminato/telegram2notion-quarkus/issues/3)
+* [ ] Improve bot's response [#4](https://github.com/polilluminato/telegram2notion-quarkus/issues/4)
 
 ## 💎 Contributing
 
