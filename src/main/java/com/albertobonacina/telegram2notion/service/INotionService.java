@@ -1,7 +1,9 @@
 package com.albertobonacina.telegram2notion.service;
 
+import com.albertobonacina.telegram2notion.dto.NotionResultDto;
+
 public interface INotionService {
 
-    Boolean send(String telegramMessage);
+    NotionResultDto send(String telegramMessage);
 
 }

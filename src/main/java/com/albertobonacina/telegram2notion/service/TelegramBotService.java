@@ -1,5 +1,6 @@
 package com.albertobonacina.telegram2notion.service;
 
+import com.albertobonacina.telegram2notion.dto.NotionResultDto;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -32,13 +33,12 @@ public class TelegramBotService extends TelegramLongPollingBot {
         String chatId = update.getMessage().getChatId().toString();
         String telegramMessage = update.getMessage().getText();
 
-        Boolean isSent = notionService.send(telegramMessage);
+        NotionResultDto notionResult = notionService.send(telegramMessage);
 
         //Configure message to send back
-        //TODO: create a message based on the isSent result
         SendMessage sendMessage = new SendMessage();
             sendMessage.setChatId(chatId);
-            sendMessage.setText("My message back");
+            sendMessage.setText(notionResult.getMessage());
 
         try {
             execute(sendMessage);

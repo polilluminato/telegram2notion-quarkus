@@ -1,6 +1,7 @@
 package com.albertobonacina.telegram2notion.service;
 
 import com.albertobonacina.telegram2notion.client.NotionPageResource;
+import com.albertobonacina.telegram2notion.dto.NotionResultDto;
 import com.albertobonacina.telegram2notion.model.*;
 import com.albertobonacina.telegram2notion.utils.UrlUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -23,18 +24,20 @@ public class NotionService implements INotionService {
 
     @ConfigProperty(name = "notion.db")
     String notionDB;
+    @ConfigProperty(name = "telegram.bot.formatted.response")
+    String botFormattedResponse;
 
     @Inject
     NotionPageResource notionPageResource;
 
     @Override
-    public Boolean send(String telegramMessage) {
+    public NotionResultDto send(String telegramMessage) {
 
         //Get urls inside message
         List<String> urlList = UrlUtils.extractUrls(telegramMessage);
         List<String> hashtagList = UrlUtils.extractHashTags(telegramMessage);
 
-        //Get the first url in the list because I have to get the title of the webpage
+        //Get the first url in the list because I must get the title of the webpage
         String myUrl = urlList.get(0);
         String titleFromMyUrl = "";
         try {
@@ -80,6 +83,10 @@ public class NotionService implements INotionService {
 
         notionPageResource.createNewPage(newNotionPage);
 
-        return true;
+        return new NotionResultDto(true,
+                String.format(botFormattedResponse,
+                        titleFromMyUrl,
+                        String.join(", ",hashtagList))
+        );
     }
 }
