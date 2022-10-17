@@ -1,16 +1,20 @@
 # Telegram2Notion Quarkus
 
-The project's documentation is at [Telegram2Notion Quarkus Docs](https://docs.page/polilluminato/telegram2notion-quarkus)
+Telegram2Notion is a small application developed with the [Quarkus framework](https://quarkus.io/) with which it is possible to save links that are sent to a Telegram Bot in a Notion database. It is also possible to tag the links sent to the bot with hashtags to better organize your database.
 
-## ToDo
+<p align="center">
+  <a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java-3277ae?style=for-the-badge&logoColor=white"></a>
+  <a href="https://quarkus.io/"><img src="https://img.shields.io/badge/Quarkus-ff004b?style=for-the-badge&logoColor=white"></a>
+  <a href="https://maven.apache.org/"><img src="https://img.shields.io/badge/Maven-fb9835?style=for-the-badge&logoColor=white"></a>
+</p>
 
-* [x] Send request to Notion via API: [Create a page](https://developers.notion.com/reference/post-page)
-  * [USING THE REST CLIENT REACTIVE](https://quarkus.io/guides/rest-client-reactive)
-* [x] Retrive article title form the url inside Telegram message in [#1](https://github.com/polilluminato/telegram2notion-quarkus/issues/1)
-* [x] Add a column to the database for the read/unread status of an article (#2)
-* [ ] Update docs
-* [ ] Add error responses to the bot in case of an error [#3](https://github.com/polilluminato/telegram2notion-quarkus/issues/3)
-* [ ] Improve bot's response [#4](https://github.com/polilluminato/telegram2notion-quarkus/issues/4)
+With some small configurations you can configure the application to suit other use cases such as:
+
+- send expenses and add custom tag
+- send short messages to simulate a todo-list
+- ... your imagination is the limit 🤓
+
+The project's documentation, made with [Docs.page](https://docs.page/) by [Invertase](https://invertase.io/), is at [Telegram2Notion Quarkus Docs](https://docs.page/polilluminato/telegram2notion-quarkus)
 
 ## 💎 Contributing
 
