@@ -12,6 +12,7 @@ With some small configurations you can configure the application to suit other u
 
 - send expenses and add custom tag
 - send short messages to simulate a todo-list
+- add appointments in a database with calendar view
 - ... your imagination is the limit 🤓
 
 The project's documentation, made with [Docs.page](https://docs.page/) by [Invertase](https://invertase.io/), is at [Telegram2Notion Quarkus Docs](https://docs.page/polilluminato/telegram2notion-quarkus)
