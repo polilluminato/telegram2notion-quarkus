@@ -1,0 +1,22 @@
+#QUARKUS
+quarkus:
+  smallrye-health:
+    root-path: /health
+  http:
+    port: 30090
+  rest-client:
+    notionclient-api:
+      url: 'https://api.notion.com/v1/'
+      scope: 'javax.inject.Singleton'
+#TELEGRAM
+telegram:
+  bot:
+    username: tg2notion_bookmark_bot
+    token: '5782350282:AAEj-3q0hGMn7CVj1D748Pm4QPp355KOjsU'
+    formatted:
+      response: 'Page with title: "%1$s" saved in Notion database with tags: %2$s'
+#NOTION
+notion:
+  db: 'a46fc703435e4340a765b82e26a9a90a'
+  secret: 'Bearer secret_FNYtD42WwlXTSA0vGcXgzUwRPoMSPZfgLyv1BuCY1et'
+  version: '2022-06-28'
