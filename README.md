@@ -1,12 +1,16 @@
 # Telegram2Notion Quarkus
 
-Telegram2Notion is a small application developed with the [Quarkus framework](https://quarkus.io/) with which it is possible to save links that are sent to a Telegram Bot in a Notion database. It is also possible to tag the links sent to the bot with hashtags to better organize your database.
-
 <p align="center">
   <a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java-3277ae?style=for-the-badge&logoColor=white"></a>
   <a href="https://quarkus.io/"><img src="https://img.shields.io/badge/Quarkus-ff004b?style=for-the-badge&logoColor=white"></a>
   <a href="https://maven.apache.org/"><img src="https://img.shields.io/badge/Maven-fb9835?style=for-the-badge&logoColor=white"></a>
 </p>
+
+Telegram2Notion is a small application developed with the [Quarkus framework](https://quarkus.io/) with which it is possible to save links that are sent to a Telegram Bot in a Notion database. It is also possible to tag the links sent to the bot with hashtags to better organize your database.
+
+Here is a small demo of the application:
+
+<iframe src="https://player.vimeo.com/video/763926082?h=2424669c9f" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 With some small configurations you can configure the application to suit other use cases such as:
 
