@@ -10,6 +10,8 @@ Telegram2Notion is a small application developed with the [Quarkus framework](ht
 
 Here is a small demo of the application:
 
+[![Telegram2Notion Quarkus Demo](./docs/videos/telegram-notion-quarkus-demo-first-frame.png)](https://player.vimeo.com/video/763926082?h=2424669c9f)
+
 <iframe src="https://player.vimeo.com/video/763926082?h=2424669c9f" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 With some small configurations you can configure the application to suit other use cases such as:
