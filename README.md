@@ -23,6 +23,22 @@ The project's documentation, made with [Docs.page](https://docs.page/) by [Inver
 
 You can read the blog post on my blog here: [Save Bookmarks to Notion Database with Telegram and Quarkus](https://blog.albertobonacina.com/save-bookmarks-to-notion-database-with-telegram-and-quarkus).
 
+## 🚀 Deploy 
+
+As a Quarkus application made with [Maven](https://maven.apache.org/index.html) you can build an _über-jar_ with the following command:
+
+```bash
+./mvnw package -Dquarkus.package.type=uber-jar
+```
+
+and run on a server with Java installed with 
+
+```bash
+nohup java -jar telegram2notion-*.jar &
+```
+
+more information can be found in the [Quarkus docs](https://docs.page/polilluminato/telegram2notion-quarkus/pages/quarkus-doc) section of the documentation.
+
 ## 💎 Contributing
 
 If you have any idea, feel free to fork it and submit your changes back to me.
