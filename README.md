@@ -19,9 +19,11 @@ With some small configurations you can configure the application to suit other u
 - add appointments in a database with calendar view
 - ... your imagination is the limit 🤓
 
-The project's documentation, made with [Docs.page](https://docs.page/) by [Invertase](https://invertase.io/), is at [Telegram2Notion Quarkus Docs](https://docs.page/polilluminato/telegram2notion-quarkus)
-
 You can read the blog post on my blog here: [Save Bookmarks to Notion Database with Telegram and Quarkus](https://blog.albertobonacina.com/save-bookmarks-to-notion-database-with-telegram-and-quarkus).
+
+## 📗 Documentation
+
+The project's documentation, made with [Docs.page](https://docs.page/) by [Invertase](https://invertase.io/), is at [Telegram2Notion Quarkus Docs](https://docs.page/polilluminato/telegram2notion-quarkus)
 
 ## 🚀 Deploy 
 
