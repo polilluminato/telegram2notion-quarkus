@@ -34,11 +34,9 @@ public class NotionService implements INotionService {
     public NotionResultDto send(String telegramMessage) {
 
         //Get urls inside message
-        List<String> urlList = UrlUtils.extractUrls(telegramMessage);
+        String myUrl = UrlUtils.extractUrl(telegramMessage);
         List<String> hashtagList = UrlUtils.extractHashTags(telegramMessage);
 
-        //Get the first url in the list because I must get the title of the webpage
-        String myUrl = urlList.get(0);
         String titleFromMyUrl = "";
         try {
             titleFromMyUrl = UrlUtils.getTitleFromWebPage(myUrl);
