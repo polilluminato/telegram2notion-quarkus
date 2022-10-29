@@ -4,6 +4,7 @@
   "theme": "#303f9f",
   "sidebar": [
     ["Configuration", "/pages/configuration"],
+    ["Examples", "/pages/examples"],
     ["Quarkus docs", "/pages/quarkus-doc"]
   ]
 }
