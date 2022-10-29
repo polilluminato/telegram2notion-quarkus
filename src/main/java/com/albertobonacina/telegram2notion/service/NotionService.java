@@ -36,13 +36,18 @@ public class NotionService implements INotionService {
         //Get urls inside message
         String myUrl = UrlUtils.extractUrl(telegramMessage);
         List<String> hashtagList = UrlUtils.extractHashTags(telegramMessage);
+        String customTitle = UrlUtils.extractTitleFromMessage(telegramMessage);
 
         String titleFromMyUrl = "";
-        try {
-            titleFromMyUrl = UrlUtils.getTitleFromWebPage(myUrl);
-        } catch (IOException e) {
-            //TODO: return custom message to the bot
-            log.error(e.getMessage());
+        if(customTitle != null){
+           titleFromMyUrl = customTitle;
+        } else {
+            try {
+                titleFromMyUrl = UrlUtils.getTitleFromWebPage(myUrl);
+            } catch (IOException e) {
+                //TODO: return custom message to the bot
+                log.error(e.getMessage());
+            }
         }
 
         NotionPage newNotionPage = new NotionPage();

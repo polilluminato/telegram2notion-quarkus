@@ -41,6 +41,26 @@ public class UrlUtils {
         return containedHashTags;
     }
 
+    /* https://stackhowto.com/how-to-extract-text-between-parenthesis-in-java/
+    *  Return the custom title as specified between { and }
+     *  Input: link #tag1 #tag2 {custom title}
+     *  Output: custom title */
+    public static String extractTitleFromMessage(String text){
+        List<String> containedTitles = new ArrayList<>();
+        Matcher titleMatcher = Pattern.compile("\\{(.*?)\\}", Pattern.CASE_INSENSITIVE)
+                                        .matcher(text);
+
+        while (titleMatcher.find()) {
+            containedTitles.add(
+                text.substring(titleMatcher.start(0), titleMatcher.end(0))
+                    .replace("{","")
+                    .replace("}","")
+            );
+        }
+
+        return !containedTitles.isEmpty() ? containedTitles.get(0) : null;
+    }
+
     public static String getTitleFromWebPage(String url) throws IOException {
         Document doc = Jsoup.connect(url).get();
         return doc.title();
