@@ -38,7 +38,7 @@ public class TelegramBotService extends TelegramLongPollingBot {
         //Configure message to send back
         SendMessage sendMessage = new SendMessage();
             sendMessage.setChatId(chatId);
-            sendMessage.setText(notionResult.getMessage());
+            sendMessage.setText(notionResult.message());
 
         try {
             execute(sendMessage);

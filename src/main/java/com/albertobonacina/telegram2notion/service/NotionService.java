@@ -50,46 +50,39 @@ public class NotionService implements INotionService {
             }
         }
 
-        NotionPage newNotionPage = new NotionPage();
-            newNotionPage.setParent(new NotionPageParent(notionDB));
-                NotionPageProperties notionPageProperties = new NotionPageProperties();
-                    notionPageProperties.setUrl(
-                        new NotionPropertiesUrl(myUrl)
-                    );
-                    notionPageProperties.setDate(
-                        new NotionPropertiesDate(
-                            new PropertiesDateDate(
-                                ZonedDateTime.now(ZoneId.of("Europe/Rome"))
-                                    .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME), null)
-                        )
-                    );
-                    notionPageProperties.setTag(
-                        new NotionPropertiesTag(
-                            new ArrayList<>(
-                                hashtagList.stream()
-                                    .map(PropertiesMultiSelect::new)
-                                    .collect(Collectors.toList()))
-                            )
-                    );
-                    notionPageProperties.setName(
-                        new NotionPropertiesName(
-                            new ArrayList<>(
-                                Collections.singleton(
-                                    new PropertiesTitle(
-                                        new PropertiesTitleText(titleFromMyUrl)
-                                    )
-                                )
+        NotionPage newNotionPage = new NotionPage(
+            new NotionPageParent(notionDB),
+            new NotionPageProperties(
+                new NotionPropertiesUrl(myUrl),
+                new NotionPropertiesDate(
+                    new PropertiesDateDate(
+                        ZonedDateTime.now(ZoneId.of("Europe/Rome"))
+                                .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME), null
+                    )
+                ),
+                new NotionPropertiesTag(
+                    new ArrayList<>(
+                        hashtagList.stream()
+                                .map(PropertiesMultiSelect::new)
+                                .collect(Collectors.toList())
+                    )
+                ),
+                new NotionPropertiesName(
+                    new ArrayList<>(
+                        Collections.singleton(
+                            new PropertiesTitle(
+                                new PropertiesTitleText(titleFromMyUrl)
                             )
                         )
-                    );
-            newNotionPage.setProperties(notionPageProperties);
+                    )
+                )
+            )
+        );
 
         notionPageResource.createNewPage(newNotionPage);
 
         return new NotionResultDto(true,
-                String.format(botFormattedResponse,
-                        titleFromMyUrl,
-                        String.join(", ",hashtagList))
+            String.format(botFormattedResponse, titleFromMyUrl, String.join(", ",hashtagList))
         );
     }
 }
