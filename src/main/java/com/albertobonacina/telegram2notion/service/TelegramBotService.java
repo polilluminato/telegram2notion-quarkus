@@ -15,17 +15,13 @@ public class TelegramBotService extends TelegramLongPollingBot {
     private final INotionService notionService;
 
     public TelegramBotService(INotionService notionService) {
+        super(ConfigProvider.getConfig().getValue("telegram.bot.token", String.class));
         this.notionService = notionService;
     }
 
     @Override
     public String getBotUsername() {
         return ConfigProvider.getConfig().getValue("telegram.bot.username", String.class);
-    }
-
-    @Override
-    public String getBotToken() {
-        return ConfigProvider.getConfig().getValue("telegram.bot.token", String.class);
     }
 
     public void onUpdateReceived(Update update) {
