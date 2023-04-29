@@ -4,9 +4,8 @@ import com.albertobonacina.telegram2notion.model.NotionPage;
 import org.eclipse.microprofile.rest.client.annotation.ClientHeaderParam;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
 
 @Path("/pages")
 @RegisterRestClient(configKey="notionclient-api")
@@ -15,5 +14,5 @@ import javax.ws.rs.core.Response;
 public interface NotionPageService {
 
     @POST
-    Response createNewPage(NotionPage notionPage);
+    void createNewPage(NotionPage notionPage);
 }

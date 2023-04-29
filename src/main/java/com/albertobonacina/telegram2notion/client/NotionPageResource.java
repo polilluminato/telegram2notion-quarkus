@@ -4,9 +4,8 @@ import com.albertobonacina.telegram2notion.model.NotionPage;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
 
 @Slf4j
 @Path("/pages")
@@ -16,7 +15,7 @@ public class NotionPageResource {
     NotionPageService notionPageService;
 
     @POST
-    public Response createNewPage(NotionPage notionPage){
-        return notionPageService.createNewPage(notionPage);
+    public void createNewPage(NotionPage notionPage){
+        notionPageService.createNewPage(notionPage);
     }
 }
